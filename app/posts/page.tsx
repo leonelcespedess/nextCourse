@@ -21,14 +21,15 @@ export default async function Posts() {
               <span className="mr-3 min-w-[2em] text-black font-bold text-lg text-left">
                 {idx + 1}.
               </span>
-              <div className="flex flex-col w-full">
-                <span className="font-semibold text-left w-full block text-black">
-                  {post.title}
-                </span>
-                <span className="text-sm text-gray-600 text-left block">
-                  by {post.author?.name ?? "Sin autor"}
-                </span>
-              </div>
+              <CustomButton
+                href={`/posts/${post.id}`}
+                colorClass="bg-blue-500 text-white hover:bg-blue-600 border border-blue-600 w-full"
+              >
+                <div className="flex flex-col w-full text-left">
+                  <span className="font-semibold w-full block">{post.title}</span>
+                  <span className="text-sm text-blue-100/90 block">by {post.author?.name ?? "Sin autor"}</span>
+                </div>
+              </CustomButton>
             </li>
           ))}
           <li className="w-full flex items-center">

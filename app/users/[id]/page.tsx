@@ -1,5 +1,7 @@
+
+import CustomButton from '@/components/CustomButton';
+import styles from '@/app/landing.module.css';
 import prisma from '@/lib/prisma';
-import styles from '../../landing.module.css';
 
 interface Props {
   params: { id: string };
@@ -12,7 +14,7 @@ export default async function UserInfo({ params }: Props) {
   });
 
   if (!user) {
-    return (
+    return (  
       <div className={styles.container}>
         <div className={styles.card}>
           <h1 className={styles.bigTitle + " text-black"}>Usuario no encontrado</h1>
@@ -37,13 +39,18 @@ export default async function UserInfo({ params }: Props) {
             <p className="text-black">Este usuario no tiene posts.</p>
           ) : (
             <ul className="list-disc pl-5">
-              {user.posts.map((post) => (
+              {user.posts.map((post: any) => (
                 <li key={post.id} className="text-black mb-1">
                   <span className="font-semibold">{post.title}</span>
                 </li>
               ))}
             </ul>
           )}
+        </div>
+        <div className="mt-6 w-full">
+          <CustomButton href="/users" colorClass="bg-gray-300 text-black hover:bg-gray-400 w-full">
+            Volver a usuarios
+          </CustomButton>
         </div>
       </div>
     </div>
