@@ -1,70 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-import NextTemplate from "@/components/next_template";
+
+
+import CustomButton from "@/components/CustomButton";
+import styles from "./landing.module.css";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <Link
-        href="/users"
-        className="px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition"
-      >
-        Ir a Usuarios
-      </Link>
-      <Link 
-        href="/posts"
-        className="px-6 py-2 rounded bg-green-600 text-white hover:bg-green-700 transition"
-      >
-        Ir a Posts
-      </Link>
-      <NextTemplate />
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <div className={styles.squareTitle}>
+          <h1 className={styles.bigTitle}>Bienvenido a NextCourse</h1>
+        </div>
+        <div className={styles.buttonGroup}>
+          <CustomButton href="/users">Ir a Usuarios</CustomButton>
+          <CustomButton href="/posts" colorClass="bg-green-600 hover:bg-green-700">Ir a Posts</CustomButton>
+        </div>
+      </div>
     </div>
   );
 }

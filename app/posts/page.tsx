@@ -1,3 +1,5 @@
+import CustomButton from "@/components/CustomButton";
+import styles from "../landing.module.css";
 import prisma from "@/lib/prisma";
 
 export default async function Posts() {
@@ -8,20 +10,51 @@ export default async function Posts() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16">
-      <h1 className="text-4xl font-bold mb-8 font-[family-name:var(--font-geist-sans)] text-[#333333]">
-        Posts
-      </h1>
-      <ul className="font-[family-name:var(--font-geist-sans)] max-w-2xl space-y-4">
-        {posts.map((post) => (
-          <li key={post.id}>
-            <span className="font-semibold">{post.title}</span>
-            <span className="text-sm text-gray-600 ml-2">
-              by {post.author.name}
-            </span>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <div className={styles.squareTitle}>
+          <h1 className={styles.bigTitle + " text-black"}>Posts</h1>
+        </div>
+        <ul className={`${styles.buttonGroup} mt-2`}>
+          {posts.map((post, idx) => (
+            <li key={post.id} className="w-full flex items-center">
+              <span className="mr-3 min-w-[2em] text-black font-bold text-lg text-left">
+                {idx + 1}.
+              </span>
+              <div className="flex flex-col w-full">
+                <span className="font-semibold text-left w-full block text-black">
+                  {post.title}
+                </span>
+                <span className="text-sm text-gray-600 text-left block">
+                  by {post.author?.name ?? "Sin autor"}
+                </span>
+              </div>
+            </li>
+          ))}
+          <li className="w-full flex items-center">
+            <span className="mr-3 min-w-[2em]" />
+            <CustomButton
+              href="/posts/new"
+              colorClass="bg-green-600 text-white hover:bg-green-700 border border-green-700 w-full"
+            >
+              <span className="font-semibold text-left w-full block">
+                Agregar Post
+              </span>
+            </CustomButton>
           </li>
-        ))}
-      </ul>
+          <li className="w-full flex items-center">
+            <span className="mr-3 min-w-[2em]" />
+            <CustomButton
+              href="/"
+              colorClass="bg-red-700 text-white hover:bg-red-800 border border-red-800 w-full"
+            >
+              <span className="font-semibold text-left w-full block">
+                Volver al inicio
+              </span>
+            </CustomButton>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
