@@ -1,3 +1,17 @@
+Primer proyecto de Next, para interiorizar el framework, prisma y primer acercamiento a TypeScript.
+
+Mi idea era hacer un seguimiento de los siguientes tutoriales.
+
+Next
+    Next estructura https://www.youtube.com/watch?v=6jQdZcYY8OY
+    Next con prisma primeros pasoshttps://www.youtube.com/watch?v=QXxy8Uv1LnQ
+    Documentación de prisma https://www.prisma.io/docs/guides/nextjs
+
+TypeScript
+    Curso https://www.youtube.com/watch?v=K01hLNDdqg4
+    Curso de seguimiento https://www.boot.dev/lessons/9ff0528f-d79d-45b1-80a2-6ff34aae3785
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
