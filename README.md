@@ -1,50 +1,80 @@
-Primer proyecto de Next, para interiorizar el framework, prisma y primer acercamiento a TypeScript.
+# Proyecto de Aplicación de Cursos de Next.js y TypeScript
 
-Mi idea era hacer un seguimiento de los siguientes tutoriales.
+Este proyecto es una instancia práctica para aplicar y consolidar los conocimientos adquiridos a través de los siguientes cursos y tutoriales sobre Next.js, Prisma y TypeScript:
 
-Next
-    Next estructura https://www.youtube.com/watch?v=6jQdZcYY8OY
-    Next con prisma primeros pasoshttps://www.youtube.com/watch?v=QXxy8Uv1LnQ
-    Documentación de prisma https://www.prisma.io/docs/guides/nextjs
+### Cursos y Tutoriales de Referencia
 
-TypeScript
-    Curso https://www.youtube.com/watch?v=K01hLNDdqg4
-    Curso de seguimiento https://www.boot.dev/lessons/9ff0528f-d79d-45b1-80a2-6ff34aae3785
+**Next.js y Prisma:**
 
+- **Estructura de Next.js:** [Ver video en YouTube](https://www.youtube.com/watch?v=6jQdZcYY8OY)
+- **Next.js con Prisma (Primeros Pasos):** [Ver video en YouTube](https://www.youtube.com/watch?v=QXxy8Uv1LnQ)
+- **Documentación oficial de Prisma:** [Leer documentación](https://www.prisma.io/docs/guides/nextjs)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**TypeScript:**
 
-## Getting Started
+- **Curso de TypeScript (YouTube):** [Ver video en YouTube](https://www.youtube.com/watch?v=K01hLNDdqg4)
+- **Curso de seguimiento (Boot.dev):** [Ir al curso](https://www.boot.dev/lessons/9ff0528f-d79d-45b1-80a2-6ff34aae3785)
 
-First, run the development server:
+El objetivo principal fue construir una aplicación rapida y basica para probar estas tecnologías.
+
+## Cómo Probar el Proyecto
+
+Para iniciar y probar este proyecto en tu entorno local, sigue estos pasos:
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone https://github.com/leonelcespedess/nextCourse.git
+cd nextCourse
+```
+
+### 2. Instalar Dependencias
+
+Asegúrate de tener Node.js y npm instalados. Luego, instala las dependencias del proyecto:
+
+```bash
+npm install
+```
+
+### 3. Configurar la Base de Datos
+
+Este proyecto utiliza Prisma como ORM. Para configurar tu base de datos, ejecuta la migración:
+
+```bash
+npx prisma migrate dev
+```
+
+Esto creará la base de datos SQLite y aplicará el esquema definido.
+
+### 4. (Opcional) Poblar la Base de Datos con Datos de Ejemplo
+
+Puedes poblar la base de datos con datos iniciales ejecutando el script de seed:
+
+```bash
+npx prisma db seed
+```
+
+### 5. Iniciar el Servidor de Desarrollo
+
+Una vez completados los pasos anteriores, puedes iniciar el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el proyecto en funcionamiento.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables de Entorno
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para conectar la aplicación a una base de datos (especialmente en un entorno de producción o si no usas el SQLite local), es necesario configurar un archivo `.env` en la raíz del proyecto.
 
-## Learn More
+### Ejemplo de `.env`
 
-To learn more about Next.js, take a look at the following resources:
+Crea un archivo llamado `.env` y añade la URL de conexión a tu base de datos. Por ejemplo, para una base de datos PostgreSQL:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+# Ejemplo de URL de conexión para PostgreSQL
+DATABASE_URL="postgresql://user:password@host:port/database?schema=public"
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Nota:** El archivo `prisma/schema.prisma` ya está configurado para usar esta variable de entorno. Asegúrate de que tu proveedor de base de datos sea compatible.
